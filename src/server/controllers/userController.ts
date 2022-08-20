@@ -1,11 +1,15 @@
 import chalk from "chalk";
 import Debug from "debug";
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { User } from "../../database/models/User";
 
 const debug = Debug("social-network-isdi:server:usersControllers");
 
-export const getUsers = async (req: Request, res: Response) => {
+export const getUsers = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   debug(chalk.bgYellowBright("A request has arrived..."));
   try {
     const users = await User.find();
@@ -14,6 +18,7 @@ export const getUsers = async (req: Request, res: Response) => {
     debug(
       chalk.bgRedBright(`Error code: ${error.code} => Error getting petition`)
     );
+    next(error);
   }
 };
 
