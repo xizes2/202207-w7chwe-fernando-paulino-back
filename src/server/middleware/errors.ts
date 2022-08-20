@@ -18,11 +18,7 @@ export const generalError = (
   const errorMessage =
     error.publicMessage ?? "Something went wrong, please try again";
 
-  debug(
-    chalk.bgRedBright(
-      `Error code: ${errorCode}. Error Message: ${errorMessage}`
-    )
-  );
+  debug(chalk.bgRedBright(`Error code: ${errorCode} => ${errorMessage}`));
 
   res.status(errorCode).json({ error: errorMessage });
 };
