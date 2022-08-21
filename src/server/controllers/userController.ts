@@ -51,5 +51,3 @@ export const registerUser = async (
     next(customError);
   }
 };
-
-export const loginUser = () => {};
