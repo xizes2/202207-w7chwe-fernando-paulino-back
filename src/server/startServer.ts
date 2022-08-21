@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import Debug from "debug";
 import app from ".";
-import IcustomError from "../types/IcustomError";
+import ICustomError from "../types/ICustomError";
 
 const debug = Debug("social-network-isdi:server:startServer");
 
@@ -14,7 +14,7 @@ const startServer = (port: number) =>
       resolve(true);
     });
 
-    server.on("error", (error: IcustomError) => {
+    server.on("error", (error: ICustomError) => {
       debug(
         chalk.bgRedBright(
           `Error code: ${error.code}, Error starting the server`

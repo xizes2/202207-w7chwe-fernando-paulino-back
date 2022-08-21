@@ -12,7 +12,7 @@ export const getUsers = async (
   res: Response,
   next: NextFunction
 ) => {
-  debug(chalk.bgYellowBright("A request has arrived..."));
+  debug(chalk.bgYellowBright("getUsers method requested..."));
   try {
     const users = await User.find();
     res.status(200).json({ users });
@@ -36,6 +36,7 @@ export const registerUser = async (
   res: Response,
   next: NextFunction
 ) => {
+  debug(chalk.bgMagentaBright("registerUser method requested..."));
   const user: UserRegisterData = req.body;
   user.password = (await hashCreator(user.password)) as unknown as string;
   try {

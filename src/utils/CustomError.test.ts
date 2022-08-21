@@ -1,4 +1,4 @@
-import IcustomError from "../types/IcustomError";
+import ICustomError from "../types/ICustomError";
 import CustomError from "./CustomError";
 
 describe("Given a CustomError", () => {
@@ -7,7 +7,7 @@ describe("Given a CustomError", () => {
     const publicMessage = "public ok";
     const privateMessage = "private ok";
     test("Then it should return code 200", () => {
-      const error = CustomError(200, "", "") as IcustomError;
+      const error = CustomError(200, "", "") as ICustomError;
 
       expect(error.code).toBe(errorCode);
     });
