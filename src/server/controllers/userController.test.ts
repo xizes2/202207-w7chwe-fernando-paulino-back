@@ -4,15 +4,15 @@ import { getUsers } from "./userController";
 
 describe("Given a userController controller", () => {
   const users = [{}];
-  const status = 200;
   const req = {};
   const res = {
     status: jest.fn().mockReturnThis(),
-    json: jest.fn().mockResolvedValue(test),
+    json: jest.fn().mockResolvedValue(users),
   };
   const next = jest.fn();
+  const status = 200;
 
-  describe("When it's getUsers method is called with ", () => {
+  describe("When it's getUsers method is called with an users array", () => {
     test("Then it should respond with status 200 and the users array", async () => {
       User.find = jest.fn().mockResolvedValue(users);
       await getUsers(
